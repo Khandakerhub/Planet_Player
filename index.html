@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<title>Planet Orbiting Audio Playlist Enhanced</title>
+	<!-- Empty favicon to prevent 404 -->
+	<link rel="icon" href="data:;base64,=">
+    <script src="script.js"></script>
+	<!-- GSAP animations -->
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+	<!-- jsmediatags for metadata (optional) -->
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
+	
+</head>
+
+<body>
+	<div class="solar-system">
+		<div class="sun"><img src="https://i.postimg.cc/Mp4z1Jns/Sun-2.png" class=sun alt="sun"></div>
+	</div>
+	<!-- Planets with JukeHost streams -->
+	<div id="orbit1" class="orbit">
+		<div class="planet" data-index="0" data-src="https://audio.jukehost.co.uk/vYkp9Ihh5j2VwjvkwWYdbIZvqBMlTDXf"
+			data-bpm="120">
+			<img src="https://i.postimg.cc/FRXmnbg3/Mercury.png" class="mercury allPlanet" alt="planet">Mercury
+		</div>
+	</div>
+	<div id="orbit2" class="orbit">
+		<div class="planet" data-index="1" data-src="https://audio.jukehost.co.uk/0jTsxGZF9Gpn2zdJCaR7oXw1L6CrVY8k"
+			data-bpm="90">
+			<img src="https://i.postimg.cc/jSWbx3My/Venus-1.png" class="venus allPlanet" alt="planet">Venus
+		</div>
+	</div>
+	<div id="orbit3" class="orbit">
+		<div class="planet" data-index="2" data-src="https://audio.jukehost.co.uk/xpYfngb6kAuYIuiCeROM8WSoMC6HLYZ4"
+			data-bpm="140">
+			<img src="https://i.postimg.cc/fb9DKqXM/Earth.png" class="earth allPlanet" alt="planet">Earth
+		</div>
+	</div>
+	<div id="orbit4" class="orbit">
+		<div class="planet" data-index="3" data-src="https://audio.jukehost.co.uk/0WjTsM6x4lF7CViPR96q1VWNmcorF8BT"
+			data-bpm="100">
+			<img src="https://i.postimg.cc/fTqshQfw/Mars.png" class="mars allPlanet" alt="planet">Mars
+		</div>
+	</div>
+	<div id="orbit5" class="orbit">
+		<div class="planet" data-index="4" data-src="https://audio.jukehost.co.uk/isMk4UOp4ziRP7cYKKDUtdY8yOLMjMzz"
+			data-bpm="110">
+			<img src="https://i.postimg.cc/fR6hJ7Pp/Jupiter.png" class="jupiter allPlanet" alt="planet">Jupiter
+		</div>
+	</div>
+	<div id="orbit6" class="orbit">
+		<div class="planet" data-index="5" data-src="https://audio.jukehost.co.uk/FVfaDfVexWsqNFPEQCRYHQckKnqlTitb"
+			data-bpm="95">
+			<img src="https://i.postimg.cc/m2g4qgMX/Saturn-1.png" class="saturn allPlanet" alt="planet">Saturn
+		</div>
+	</div>
+	<div id="orbit7" class="orbit">
+		<div class="planet" data-index="6" data-src="https://audio.jukehost.co.uk/cMn6klVvgfblsiVyy6j3qenjvzynoFks"
+			data-bpm="130">
+			<img src="https://i.postimg.cc/xCPrxwdV/Uranus.png" class="uranus allPlanet" alt="planet">Uranus
+		</div>
+	</div>
+	<div id="orbit8" class="orbit">
+		<div class="planet" data-index="7" data-src="https://audio.jukehost.co.uk/RQvSILZSF336Bifb1qpuJk8eqCrE774s"
+			data-bpm="85">
+			<img src="https://i.postimg.cc/d1FP9sw9/Neptune.png" class="neptune allPlanet" alt="planet">Neptune
+		</div>
+	</div>
+	<div id="orbit9" class="orbit">
+		<div class="planet" data-index="8" data-src="https://audio.jukehost.co.uk/b8BQqwe1jLhNwjX9EdoiZYvq5Z2ipyol"
+			data-bpm="150">
+			<img src="https://i.postimg.cc/PJfgBSLp/Pluto.png" class="pluto allPlanet" alt="planet">Pluto
+		</div>
+	</div>
+
+	<!-- Planets Extra 
+  <div id="orbit10" class="orbit">
+    <div class="planet" data-src="https://audio.jukehost.co.uk/lrfLCZ98Sglgh5xBvezZ3Zq1pmGzUOVB" data-bpm="105">
+      <img src="https://i.postimg.cc/3xFHxkNK/Planet-1.png" class="pl-10 allPlanet" alt="planet">
+    </div>
+  </div> -->
+	<audio id="audio-player" preload="metadata"></audio>
+
+	<div id="audioControls">
+		<button id="play-pause">
+			<i class="fa-solid fa-play controlBtn"></i>
+			<i class="fa-solid fa-pause controlBtn"></i>
+		</button>
+		<button id="loop">
+			<i class="fa-solid fa-repeat controlBtn"></i>
+			<i class="fa-solid fa-rotate-right controlBtn"></i>
+			<i class="fa-solid fa-rotate controlBtn"></i>
+		</button>
+		<button id="mute">
+			<i class="fa-solid fa-volume-high controlBtn"></i>
+			<i class="fa-solid fa-volume-xmark controlBtn"></i>
+		</button>
+		<div id="volumeSlider">
+			<div id="volumeTrack">
+				<div id="volumeFill"></div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="playlist"><strong>Playlist</strong>
+		<ul id="playlist"></ul>
+	</div>
+	<div class="metadata" id="metadata"><strong></strong>
+		<div id="meta-title">-</div>
+		<div id="meta-artist">-</div>
+	</div>
+	<canvas id="visualizer"></canvas>
+
+
+	
+
+
+</body>
+
+</html>

@@ -1,0 +1,359 @@
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: sans-serif;
+			overflow: hidden;
+			background-image: url("https://i.postimg.cc/wv7XBs6Z/Sky-2.jpg");
+			/*background: radial-gradient(#1a1a1a 40%, #111);*/
+		}
+
+		.solar-system {
+			position: relative;
+			width: 100vw;
+			height: 100vh;
+		}
+
+		.sun {
+			width: 100px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 5rem;
+			z-index: 11;
+		}
+
+
+		.mercury {
+			width: 24px;
+		}
+
+		.venus {
+			width: 30px;
+		}
+
+		.earth {
+			width: 40px;
+		}
+
+		.mars {
+			width: 34px;
+		}
+
+		.jupiter {
+			width: 60px;
+		}
+
+		.saturn {
+			width: 80px;
+		}
+
+		.uranus {
+			width: 42px;
+		}
+
+		.neptune {
+			width: 50px;
+		}
+
+		.pluto {
+			width: 36px;
+		}
+
+		.pl-10 {
+			width: 28px;
+		}
+
+		.allPlanet {
+			animation: rotate 10s linear infinite;
+			transform-origin: center;
+		}
+
+		@keyframes rotate {
+			from {
+				transform: rotate(0deg);
+			}
+
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
+		.glow {
+			box-shadow: 0 0 10px 10px rgba(248, 248, 248, 0.39);
+			border-radius: 50%;
+			transition: box-shadow 0.3s ease;
+		}
+
+
+		.orbit {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			border: 2px dashed rgba(255, 255, 255, 0.2);
+			border-radius: 50%;
+			transform-origin: 50% 50%;
+			cursor: pointer;
+		}
+
+		/* Orbits */
+		#orbit1 {
+			width: 200px;
+			height: 200px;
+			margin: -100px 0 0 -100px;
+			animation: spin 25s linear infinite;
+			z-index: 10;
+		}
+
+		#orbit2 {
+			width: 300px;
+			height: 300px;
+			margin: -150px 0 0 -150px;
+			animation: spin 65s linear infinite;
+			z-index: 9;
+		}
+
+		#orbit3 {
+			width: 400px;
+			height: 400px;
+			margin: -200px 0 0 -200px;
+			animation: spin 30s linear infinite;
+			z-index: 8;
+		}
+
+		#orbit4 {
+			width: 500px;
+			height: 500px;
+			margin: -250px 0 0 -250px;
+			animation: spin 100s linear infinite;
+			z-index: 7;
+		}
+
+		#orbit5 {
+			width: 600px;
+			height: 600px;
+			margin: -300px 0 0 -300px;
+			animation: spin 75s linear infinite;
+			z-index: 6;
+		}
+
+		#orbit6 {
+			width: 700px;
+			height: 700px;
+			margin: -350px 0 0 -350px;
+			animation: spin 55s linear infinite;
+			z-index: 5;
+		}
+
+		#orbit7 {
+			width: 800px;
+			height: 800px;
+			margin: -400px 0 0 -400px;
+			animation: spin 80s linear infinite;
+			z-index: 4;
+		}
+
+		#orbit8 {
+			width: 900px;
+			height: 900px;
+			margin: -450px 0 0 -450px;
+			animation: spin 95s linear infinite;
+			z-index: 3;
+		}
+
+		#orbit9 {
+			width: 1000px;
+			height: 1000px;
+			margin: -500px 0 0 -500px;
+			animation: spin 60s linear infinite;
+			z-index: 2;
+		}
+
+		#orbit10 {
+			width: 1100px;
+			height: 1100px;
+			margin: -550px 0 0 -550px;
+			animation: spin 105s linear infinite;
+			z-index: 1;
+		}
+
+		.orbit.glow {
+			box-shadow: 0 0 15px 5px rgba(252, 1, 168, 0.24);
+			animation: pulseOrbit 1.5s infinite alternate;
+		}
+
+		@keyframes pulseOrbit {
+			0% {
+				box-shadow: 0 0 5px rgba(253, 1, 98, 0.1);
+			}
+
+			100% {
+				box-shadow: 0 0 20px rgba(255, 1, 107, 0.089);
+			}
+		}
+
+		.planet {
+			position: absolute;
+			top: 50%;
+			left: 100%;
+			transform: translate(-50%, -50%);
+			font-size: 10px;
+			color: #888888;
+			text-align: center;
+			z-index: 2;
+		}
+
+		.planet:hover {
+			transform: translate(-50%, -50%) scale(1.2);
+			transition: all 0.3s;
+		}
+
+		.planet.active img {
+			transform: translate(-50%, -50%) scale(1.5);
+			transition: all 0.3s;
+			box-shadow: 0 0 10px 8px rgba(250, 249, 244, 0.336);
+			/* White glow */
+			transition: box-shadow 0.3s ease, transform 0.3s ease;
+			border-radius: 50%;
+		}
+
+		#audioControls {
+			display: flex;
+			flex-direction: row;
+			gap: 10px;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			top: 10px;
+			left: 160px;
+			transform: translateX(-50%);
+			background: rgba(0, 0, 0, 0.25);
+			padding: 5px 10px;
+			border-radius: 8px;
+			z-index: 5;
+		}
+
+		#audioControls button {
+			background: none;
+			border: none;
+			font-size: 22px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+
+		.controlBtn {
+			display: none;
+			background-color: transparent;
+		}
+
+		#loop i {
+			display: none;
+		}
+
+		#loop i:first-child {
+			display: inline;
+		}
+
+
+		#play-pause:not(.playing) .fa-play,
+		#play-pause.playing .fa-pause,
+		#loop,
+		#mute:not(.muted) .fa-volume-high,
+		#mute.muted .fa-volume-xmark {
+			display: inline;
+			color: #949393a2;
+		}
+
+		#play-pause:not(.playing) .fa-play:hover,
+		#play-pause.playing .fa-pause:hover,
+		#mute:not(.muted) .fa-volume-high:hover,
+		#mute.muted .fa-volume-xmark:hover {
+			color: #949393;
+		}
+
+		/* Volume Slider */
+		#volumeSlider {
+			width: 100px;
+			height: 10px;
+			background-color: #58585894;
+			cursor: pointer;
+			position: relative;
+			border-radius: 5px;
+		}
+
+		#volumeTrack {
+			width: 100%;
+			height: 100%;
+			position: relative;
+		}
+
+		#volumeFill {
+			height: 100%;
+			width: 100%;
+			background-color: #79787877;
+			border-radius: 5px;
+		}
+
+
+		.playlist {
+			position: absolute;
+			Top: 50px;
+			left: -72px;
+			background: rgba(0, 0, 0, 0.5);
+			transition: 600ms;
+			padding: 12px;
+			border-radius: 8px;
+			color: #cb02fd;
+			z-index: 5;
+		}
+
+		.playlist:hover {
+			left: -4px;
+			background: rgba(0, 0, 0, 0.7);
+			transition: 500ms;
+		}
+
+		.playlist ul {
+			list-style: none;
+			color: #fd02a9;
+		}
+
+		.playlist li {
+			margin: 5px 0;
+			cursor: pointer;
+		}
+
+		.metadata {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			background: rgba(0, 0, 0, 0.5);
+			padding: 10px;
+			border-radius: 8px;
+			color: #949393a2;
+			z-index: 5;
+		}
+
+		canvas {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 99;
+			pointer-events: none;
+		}
+
+		@keyframes spin {
+			from {
+				transform: rotate(0deg);
+			}
+
+			to {
+				transform: rotate(360deg);
+			}
+		}
