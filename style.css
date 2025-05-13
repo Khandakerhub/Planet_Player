@@ -27,7 +27,6 @@
 			z-index: 11;
 		}
 
-
 		.mercury {
 			width: 24px;
 		}
@@ -88,7 +87,6 @@
 			border-radius: 50%;
 			transition: box-shadow 0.3s ease;
 		}
-
 
 		.orbit {
 			position: absolute;
@@ -258,7 +256,6 @@
 			display: inline;
 		}
 
-
 		#play-pause:not(.playing) .fa-play,
 		#play-pause.playing .fa-pause,
 		#loop,
@@ -297,7 +294,6 @@
 			background-color: #79787877;
 			border-radius: 5px;
 		}
-
 
 		.playlist {
 			position: absolute;
