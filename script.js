@@ -19,7 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const volumeFill = document.getElementById("volumeFill");
     const playIcon = document.querySelector('.fa-play');
     const pauseIcon = document.querySelector('.fa-pause');
-    
+    const volumeIcon = muteBtn.querySelector('fa-volume-high');
+    const muteIcon = muteBtn.querySelector('fa-volume-xmark');
+
     // Initially hide controls
     audioControls.style.display = "none";
 
@@ -27,10 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
     audio.addEventListener("play", () => {
         audioControls.style.display = "flex";
         playPauseBtn.classList.add("playing");
-        playIcon.style.display = 'none';
-        pauseIcon.style.display = 'inline-block';
         audio.volume = 0.5; // Initial volume 50%
         volumeFill.style.width = "50%"; // Fill 50% on start
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'inline-block';
     });
 
     // Hide when audio ends
@@ -50,10 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
             audioControls.style.display = "none";
         }
     });
-
-
-
-
 
     // Play/Pause toggle
     playPauseBtn.addEventListener("click", () => {
@@ -99,10 +97,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // Mute toggle
+    const muteIcons = muteBtn.querySelectorAll("i");
+
+    function updateMuteIcon() {
+        muteIcons.forEach(icon => {
+            icon.style.display = "none";
+        });
+
+        if (audio.muted || audio.volume === 0) {
+            muteBtn.querySelector(".fa-volume-xmark").style.display = "inline";
+        } else {
+            muteBtn.querySelector(".fa-volume-high").style.display = "inline";
+        }
+    }
+
     muteBtn.addEventListener("click", () => {
         audio.muted = !audio.muted;
         muteBtn.classList.toggle("muted", audio.muted);
+        updateMuteIcon();
     });
+
+    // Call once initially
+    updateMuteIcon();
+
+
+
 
     // Volume div slider
     volumeSlider.addEventListener("click", (e) => {
